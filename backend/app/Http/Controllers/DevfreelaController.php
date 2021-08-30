@@ -31,7 +31,7 @@ class DevfreelaController extends Controller
         // Limpa os dados removendo os caracteres inseridos pela mascara que não desejamos salvar no Banco de Dados
         $dados['cpf'] = str_replace(['.', '-'], '', $dados['cpf']);
         $dados['cep'] = str_replace('-', '', $dados['cep']);
-        $dados['telefone'] = str_replace(['(', ')', '', '-'], '', $dados['telefone']);
+        $dados['telefone'] = str_replace(['(', ')', ' ', '-'], '', $dados['telefone']);
 
         Devfreela::create($dados); // Envia os dados para o Model Devfreela cadastrar novo freelancer com os dados recebidos pela requisição
 
