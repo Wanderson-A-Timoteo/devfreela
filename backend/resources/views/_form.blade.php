@@ -6,7 +6,7 @@
     </div>
     <div class="mb-3">
         <label for="cpf" class="form-label">CPF</label>
-        <input value="{{ @$devfreela->email }}" type="text" class="form-control" id="cpf" name="cpf" required maxlength="14">
+        <input value="{{ @$devfreela->cpf }}" type="text" class="form-control" id="cpf" name="cpf" required maxlength="14">
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>

@@ -23,17 +23,22 @@ class DevfreelaController extends Controller
         return view('create');
     }
 
-    // Função para cadastrar novo Freelancer
+    // Função para cadastrar novo Freelancer no Banco de Dados
     public function store(Request $request) {
         $dados = $request->except('_token'); // Pega todos os dados da requisição, exceto o _token
         $dados['foto_usuario'] = $request->foto_usuario->store('public'); // Envia a foto do usuario para o diretório storage/app/public
+
+        // Limpa os dados removendo os caracteres inseridos pela mascara que não desejamos salvar no Banco de Dados
+        $dados['cpf'] = str_replace(['.', '-'], '', $dados['cpf']);
+        $dados['cep'] = str_replace('-', '', $dados['cep']);
+        $dados['telefone'] = str_replace(['(', ')', '', '-'], '', $dados['telefone']);
 
         Devfreela::create($dados); // Envia os dados para o Model Devfreela cadastrar novo freelancer com os dados recebidos pela requisição
 
         return redirect()->route('devfreelas.index'); // Redireciona para a página inicial do sistema
     }
 
-    // Função para editar um cadastro no Banco de Dados
+    // Função para retornar a view com o form editar um cadastro no Banco de Dados
     public function edit(int $id) {
         // Metodo "findOrfail" busca no Banco de Dados o id do Freelancer que foi solicitado na requisição editar e envia para a
         // variável $devfreela, caso não encontre ele retona um erro 404
@@ -54,6 +59,11 @@ class DevfreelaController extends Controller
         // Pega todos os dados da requisição, exceto o _token e o method, então envia os outros dados para a váriavel $dados
         $dados = $request->except(['_token', '_method']);
 
+        // Limpa os dados removendo os caracteres inseridos pela mascara que não desejamos salvar no Banco de Dados
+        $dados['cpf'] = str_replace(['.', '-'], '', $dados['cpf']);
+        $dados['cep'] = str_replace('-', '', $dados['cep']);
+        $dados['telefone'] = str_replace(['(', ')', ' ', '-'], '', $dados['telefone']);
+
         // Analisa se tem ou não uma foto para atualizar
         if($request->hasFile('foto_usuario')) {
             $dados['foto_usuario'] = $request->foto_usuario->store('public'); // Se tem foto para atualizar, envia para o diretório storage/app/public
@@ -66,7 +76,7 @@ class DevfreelaController extends Controller
         return redirect()->route('devfreelas.index');
     }
 
-    // Função para excluir um cadastro
+    // Função para excluir um cadastro no Banco de Dados
     public function destroy(int $id) {
         // Metodo "findOrfail" busca no Banco de Dados o id do Freelancer que foi solicitado na requisição excluir e envia para a
         // variável $devfreela, caso não encontre ele retona um erro 404
