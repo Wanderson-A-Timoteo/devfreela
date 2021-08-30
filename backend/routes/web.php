@@ -17,6 +17,9 @@ use App\Http\Controllers\DevfreelaController;
 Route::get('/', [DevfreelaController::class, 'index'])->name('devfreelas.index');
 Route::get('/devfreelas/create', [DevfreelaController::class, 'create'])->name('devfreelas.create');
 Route::post('/devfreelas', [DevfreelaController::class, 'store'])->name('devfreelas.store');
+Route::get('/devfreelas/{id}/edit', [DevfreelaController::class, 'edit'])->name('devfreelas.edit');
+Route::put('/devfreelas/{id}', [DevfreelaController::class, 'update'])->name('devfreelas.update');
+Route::get('/devfreelas/{id}', [DevfreelaController::class, 'destroy'])->name('devfreelas.destroy');
 
 
 

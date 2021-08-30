@@ -19,7 +19,10 @@
                     <th scope="row">{{ $devfreela->id }}</th>
                     <td>{{ $devfreela->nome_completo }}</td>
                     <td>{{ $devfreela->telefone }}</td>
-                    <td></td>
+                    <td>
+                        <a href="{{ route('devfreelas.edit', $devfreela) }}" class="btn btn-primary">Editar</a>
+                        <a href="{{ route('devfreelas.destroy', $devfreela) }}" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                    </td>
                 </tr>
             @empty
                 <tr>
