@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Devfreela;
+use App\Services\ViaCEP;
 use Illuminate\Http\Request;
 
 class DevfreelaController extends Controller
 {
+    public function __construct(
+        protected ViaCEP $viaCep
+    ) {
+    }
+
     // Função para listar os freelancers cadastrados no Banco de Dados SQLite
     public function index() {
         // Model Devfreela busca todos os dados no Banco de Dados e envia para a variável  $devfreelas
@@ -32,6 +38,7 @@ class DevfreelaController extends Controller
         $dados['cpf'] = str_replace(['.', '-'], '', $dados['cpf']);
         $dados['cep'] = str_replace('-', '', $dados['cep']);
         $dados['telefone'] = str_replace(['(', ')', ' ', '-'], '', $dados['telefone']);
+        $dados['codigo_ibge'] = $this->viaCep->buscar($dados['cep'])['ibge'];
 
         Devfreela::create($dados); // Envia os dados para o Model Devfreela cadastrar novo freelancer com os dados recebidos pela requisição
 
@@ -52,6 +59,7 @@ class DevfreelaController extends Controller
 
     // Função para atualizar as informações de um freelancer
     public function update(int $id, Request $request) {
+
         // Metodo "findOrfail" busca no Banco de Dados o id do Freelancer que foi solicitado na requisição editar e envia para a
         // variável $devfreela, caso não encontre ele retona um erro 404
         $devfreela = Devfreela::findOrfail($id);
@@ -63,6 +71,7 @@ class DevfreelaController extends Controller
         $dados['cpf'] = str_replace(['.', '-'], '', $dados['cpf']);
         $dados['cep'] = str_replace('-', '', $dados['cep']);
         $dados['telefone'] = str_replace(['(', ')', ' ', '-'], '', $dados['telefone']);
+        $dados['codigo_ibge'] = $this->viaCep->buscar($dados['cep'])['ibge'];
 
         // Analisa se tem ou não uma foto para atualizar
         if($request->hasFile('foto_usuario')) {

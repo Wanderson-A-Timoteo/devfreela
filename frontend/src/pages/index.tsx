@@ -1,5 +1,3 @@
-import Head from 'next/head';
-import Image from 'next/image';
 import SafeEnvironment from 'ui/components/feedback/SafeEnvironment/SafeEnvironment';
 import PageTitle from 'ui/components/data-display/PageTitle/PageTitle';
 import UserInformation from 'ui/components/data-display/UserInformation/UserInformation';
@@ -23,7 +21,7 @@ export default function Home() {
     devfreelas,
     buscaFeita,
     carregando,
-    devfreelaRestantes,
+    devfreelasRestantes,
   } = useIndex();
   
   return (
@@ -57,7 +55,8 @@ export default function Home() {
           </Button>
         </FormElementsContainer>
 
-        {buscaFeita && ( devfreelas.length > 0 ?
+        {buscaFeita && 
+        ( devfreelas.length > 0 ? (
           <ProfissionaisPaper>
             <ProfissionaisContainer>
               {devfreelas.map((item, index) => {
@@ -73,10 +72,10 @@ export default function Home() {
               })}
             </ProfissionaisContainer>
             <Container sx={{ textAlign: 'center' }}>
-              {devfreelaRestantes > 0 && (
+              {devfreelasRestantes > 0 && (
                 <Typography sx={{ mt: 5 }}>
-                  ...e mais {devfreelaRestantes} {' '} 
-                  {devfreelaRestantes > 1 
+                  ...e mais {devfreelasRestantes} {' '} 
+                  {devfreelasRestantes > 1 
                     ? 'profissionais estão próximos' 
                     : 'profissional está próximo'} {' '} 
                   ao seu endereço.            
@@ -87,17 +86,16 @@ export default function Home() {
                 variant={'contained'}
                 color={'secondary'}
                 sx={{ mt: 5 }}
-              >Contratar um profissional</Button>
+              >
+                Contratar um profissional
+              </Button>
             </Container>
           </ProfissionaisPaper>
-          : (
+        ) : (
             <Typography align={'center'} color={'textPrimary'}>
               Ainda não temos nenhum programador freelancer disponível em sua região.
             </Typography>
-          )
-        )}
-      
-        
+        ))}
       </Container>      
     </div>
   );

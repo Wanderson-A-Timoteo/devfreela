@@ -12,7 +12,7 @@ export default function useIndex() {
   [buscaFeita, setBuscaFeita] = useState(false),
   [carregando, setCarregando] = useState(false),
   [devfreelas, setDevfreelas] = useState([] as UserShortInterface[]),
-  [devfreelaRestantes, setDevfreelaRestantes] = useState(0);
+  [devfreelasRestantes, setDevfreelasRestantes] = useState(0);
 
   async function buscarProfissionais(cep: string) {
     setBuscaFeita(false);
@@ -23,7 +23,7 @@ export default function useIndex() {
       const { data } = await ApiService.get<{
         devfreelas: UseShortInterface[],
         quantidade_devfreelas: number;
-      }>('/api/devfreela-cidade?cep='+cep.replace(/\D/g));
+      }>('/api/devfreelas-cidade?cep='+cep.replace(/\D/g,''));
       setDevfreelas(data.devfreelas);
       setDevfreelasRestantes(data.quantidade_devfreelas);
       setBuscaFeita(true);
@@ -44,6 +44,6 @@ export default function useIndex() {
     devfreelas,
     buscaFeita,
     carregando,
-    devfreelaRestantes,
+    devfreelasRestantes,
   };
 }
