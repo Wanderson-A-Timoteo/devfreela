@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DevfreelaRequest;
 use App\Models\Devfreela;
 use App\Services\ViaCEP;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class DevfreelaController extends Controller
     }
 
     // Função para cadastrar novo Freelancer no Banco de Dados
-    public function store(Request $request) {
+    public function store(DevfreelaRequest $request) {
         $dados = $request->except('_token'); // Pega todos os dados da requisição, exceto o _token
         $dados['foto_usuario'] = $request->foto_usuario->store('public'); // Envia a foto do usuario para o diretório storage/app/public
 
@@ -58,7 +59,7 @@ class DevfreelaController extends Controller
     }
 
     // Função para atualizar as informações de um freelancer
-    public function update(int $id, Request $request) {
+    public function update(int $id, DevfreelaRequest $request) {
 
         // Metodo "findOrfail" busca no Banco de Dados o id do Freelancer que foi solicitado na requisição editar e envia para a
         // variável $devfreela, caso não encontre ele retona um erro 404
