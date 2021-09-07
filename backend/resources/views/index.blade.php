@@ -20,7 +20,7 @@
                 <tr>
                     <th scope="row">{{ $devfreela->id }}</th>
                     <td>{{ $devfreela->nome_completo }}</td>
-                    <td>{{ $devfreela->telefone }}</td>
+                    <td>{{ \Clemdesign\PhpMask\Mask::apply($devfreela->telefone, '(00) 00000-0000') }}</td>
                     <td>{{ $devfreela->bairro }}</td>
                     <td>{{ $devfreela->cidade }}</td>
                     <td>

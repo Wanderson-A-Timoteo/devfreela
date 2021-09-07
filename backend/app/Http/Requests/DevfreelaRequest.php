@@ -2,10 +2,16 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ValidaCep;
+use App\Services\ViaCEP;
 use Illuminate\Foundation\Http\FormRequest;
 
 class DevfreelaRequest extends FormRequest
 {
+    public function __construct(
+        public ViaCEP $viaCep
+    ){}
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -33,7 +39,7 @@ class DevfreelaRequest extends FormRequest
             'bairro' => ['required', 'max:50'],
             'cidade' => ['required', 'max:50'],
             'estado' => ['required', 'max:2'],
-            'cep' => ['required'],
+            'cep' => ['required', new ValidaCep($this->viaCep)],
             'foto_usuario' => ['image']
         ];
         // Se o metodo for POST, ou seja, quando estiver cadastrando será obrigatório foto_usuario
