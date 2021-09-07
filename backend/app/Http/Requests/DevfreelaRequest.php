@@ -32,7 +32,7 @@ class DevfreelaRequest extends FormRequest
         $regras = [
             'nome_completo' => ['required', 'max:100'],
             'cpf' => ['required', 'size:14'],
-            'email' => ['required', 'email', 'size:100'],
+            'email' => ['required', 'email', 'max:100'],
             'telefone' => ['required', 'size:15'],
             'logradouro' => ['required', 'max:255'],
             'numero' => ['required', 'max:20'],

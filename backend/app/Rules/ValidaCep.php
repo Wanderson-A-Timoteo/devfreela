@@ -2,7 +2,7 @@
 
 namespace App\Rules;
 
-
+use App\Services\ViaCEP;
 use Illuminate\Contracts\Validation\Rule;
 
  class ValidaCep implements Rule
