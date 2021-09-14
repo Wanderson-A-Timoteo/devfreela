@@ -6,7 +6,7 @@ const SafeEnvironment = () => {
     return (
         <SafeEnvironmentContainer>
             <Container>
-                Ambiente Seguro <i className={'twf-lock'} />
+                Ambiente Seguro <img src={'/img/icones/lock.png'} alt={'Cadeado Site Seguro'} />
             </Container>
         </SafeEnvironmentContainer>
     );
