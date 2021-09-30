@@ -98,7 +98,7 @@ composer require clemdesign/php-mask
 ## Prévia vizualização do Front-end
 Tela inicial do sistema.
 <p align="center">
-    <img alt="devFreela" title="devFreela" src=".github/devFreela-frontend.png" />
+    <img alt="devFreela" title="devFreela" src="https://github.com/Wanderson-A-Timoteo/devfreela/blob/main/.github/devFreela-frontend.PNG?raw=true" />
 </p>
 <br>
 
@@ -108,7 +108,7 @@ Tela inicial do sistema.
 
 Retornando os dados da API.
 <p align="center">
-    <img alt="devFreela" title="devFreela" src=".github/devFreela-frontend2.png" />
+    <img alt="devFreela" title="devFreela" src="https://github.com/Wanderson-A-Timoteo/devfreela/blob/main/.github/devFreela-frontend2.PNG?raw=true" />
 </p>
 <br>
 
@@ -119,7 +119,7 @@ Retornando os dados da API.
 ## Prévia vizualização do Back-end
 Tela administrativa do sistema.
 <p align="center">
-    <img alt="devFreela" title="devFreela" src=".github/devFreela-backend.png" />
+    <img alt="devFreela" title="devFreela" src="https://github.com/Wanderson-A-Timoteo/devfreela/blob/main/.github/devFreela-backend.PNG?raw=true" />
 </p>
 <br>
 
