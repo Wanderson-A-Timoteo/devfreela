@@ -152,6 +152,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Material-ui](https://material-ui.com/store/)
 - [Composer](https://getcomposer.org/)
 - [Guzzle, PHP HTTP Client](https://docs.guzzlephp.org/en/stable/)
+- [Expo](https://expo.dev/)
 
 <br>
 
