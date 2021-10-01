@@ -20,6 +20,9 @@
 
 O projeto foi desenvolvido como atividade avaliativa para a disciplina de Programação em Ambiente Web II. <br>
 Esta aplicação chama-se devFreela, consiste em um sistema para encontrar um programador freelancer mais proximo de você. <br>
+Foi desenvolvido a validação no preenchimento do formulário. <br>
+Cada cidade no Brasil, possui em código IBGE diferente, e para encontrar o freelancer mais próximo o sistema é integrado ao webservice do [ViaCEP](https://viacep.com.br/), 
+para realizar consultas de CEP e assim pelo código IBGE do CEP pesquisado, o sistema busca no banco de dados os freelancers que possuem o mesmo código IBGE e mostra ao usuário.
 <br>
 O banckend (API) foi desenvolvido em PHP, utilizando o framework Laravel 8 e frontend foi desenvolvido em React.js. 💜
 <br>
@@ -89,6 +92,13 @@ php artisan vendor:publish --tag=laravel-pt-br-localization
 ```     
 composer require clemdesign/php-mask
 ``` 
+<br>
+
+---
+### Mobile
+<br>
+
+## Versão Mobile em desenvolvimento 
 <br>
 
 ---
