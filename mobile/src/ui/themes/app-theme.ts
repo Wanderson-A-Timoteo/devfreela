@@ -1,5 +1,5 @@
 import { DefaultTheme } from 'react-native-paper';
-import { DefaultTheme as NavigationDefaultTheme } from '@react-navegation/native';
+import { DefaultTheme as NavigationDefaultTheme } from '@react-navigation/native';
 
 const AppTheme = {
   ...DefaultTheme,
@@ -14,7 +14,7 @@ const AppTheme = {
     surface: '#FAFAFA',
     error: '#FC3C00',
     warning: '#FCA600',
-    success: '#00D34D';
+    success: '#00D34D',
     gray: {
       50: '#FAFAFA',
       100: '#F0F0F0',
@@ -36,7 +36,7 @@ export const NavigationTheme = {
   colors: {
     ...NavigationDefaultTheme.colors,
     primary: AppTheme.colors.primary,
-    background: : AppTheme.colors.background,
+    background: AppTheme.colors.background,
     text: AppTheme.colors.text,
     card: AppTheme.colors.background,
     border: AppTheme.colors.gray[300],
