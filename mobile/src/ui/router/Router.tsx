@@ -9,6 +9,11 @@ import Logo from '@assets/img/logos/devFreela.png';
 
 const Stack = createStackNavigator();
 
+export type RootStackParamList = {
+  Index: underfined;
+  EncontrarDevfreela: underfined;
+}
+
 const Router: React.FC = () => {
   return <NavigationContainer theme={NavigationTheme}>
       <Stack.Navigator>
