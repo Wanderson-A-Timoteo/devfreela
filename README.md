@@ -18,14 +18,15 @@
 
 ## 💻 Projeto
 
-O projeto foi desenvolvido como atividade avaliativa para a disciplina de Programação em Ambiente Web II. <br>
-Esta aplicação chama-se devFreela, consiste em um sistema para encontrar um programador freelancer mais proximo de você. <br>
-Foi desenvolvido a validação no preenchimento do formulário. <br>
-Cada cidade no Brasil, possui em código IBGE diferente, e para encontrar o freelancer mais próximo o sistema é integrado ao webservice do [ViaCEP](https://viacep.com.br/), 
-para realizar consultas de CEP e assim pelo código IBGE do CEP pesquisado, o sistema busca no banco de dados os freelancers que possuem o mesmo código IBGE e mostra ao usuário.
+O projeto foi desenvolvido como atividade avaliativa para a disciplina de Programação em Ambiente Web II. <br><br>
+Esta aplicação chama-se devFreela, consiste em um sistema para encontrar um programador freelancer mais proximo de você. <br><br>
+Cada cidade no Brasil, possui um código IBGE diferente, e para encontrar o freelancer mais próximo o sistema é integrado ao webservice do [ViaCEP](https://viacep.com.br/), 
+para realizar consultas de CEP e assim pelo código IBGE do CEP pesquisado, o sistema busca no banco de dados os freelancers que possuem o mesmo código IBGE e mostra ao usuário.<br>
 <br>
-O banckend (API) foi desenvolvido em PHP, utilizando o framework Laravel 8 e frontend foi desenvolvido em React.js. 💜
-<br>
+O banckend (API) foi desenvolvido em PHP, utilizando o framework Laravel 8, também foi desenvolvido a validação no preenchimento do formulário. <br>  
+O frontend foi desenvolvido em React.js e Next.js. 💜
+<br><br>
+O mobile foi desenvolvido em React Native e Expo, foi usado Location nativo do Expo para solicitar permissão ao usuario pegar suas coordenadas de geolocalização e realizar a busca dos freelancers de forma automatica. <br>
 
 As pessoas nas imagens usadas no sistema não existem, foram retiradas do site!
 - [This person do es not exist](https://thispersondoesnotexist.com/)
@@ -49,6 +50,9 @@ npx create-next-app devfreela
 ```
 npm i @material-ui/core@next @emotion/react @emotion/styled axios react-input-mask
 ```
+<br>
+---
+
 ### Backend
 - Criando o projeto
 ```
@@ -74,11 +78,7 @@ php artisan make:model Devfreela
 ```   
 composer require guzzlehttp/guzzle
 ``` 
-- Criar link simbólico para o Storage. Dentro da pasta public da aplicação execute
-
-<br> 
-
-No Windows usando prompt em modo administrador:
+- Criar link simbólico para o Storage. Dentro da pasta public da aplicação execute no Windows usando prompt em modo administrador:
 ```     
 mklink /D public ..\storage\app\public`
 ``` 
@@ -92,13 +92,53 @@ php artisan vendor:publish --tag=laravel-pt-br-localization
 ```     
 composer require clemdesign/php-mask
 ``` 
+---
 <br>
 
----
 ### Mobile
 <br>
 
-## Versão Mobile em desenvolvimento 
+- Instalando o Expo Global
+```
+npm i -g expo-cli
+```
+<br>
+
+- Criando o projeto mobile
+```
+expo init NomeProjeto
+```
+<br>
+
+- Selecionado opção de desenvolvimento
+```
+blank ( TypeScript )
+```
+<br>
+
+- Em caso de erro no Windows, executar:
+```
+set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+<br>
+
+- Instalando dependências
+```
+npm i @emotion/react @emotion/native axios @react-native-navigation/native react-native-masked-text react-native-paper
+```
+<br>
+
+- Instalando dependências do React Navigation
+```
+expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/stack
+```
+
+<br>
+
+- Instalado o pacote de localização do Expo
+```     
+expo install expo-location
+``` 
 <br>
 
 ---
@@ -153,6 +193,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Composer](https://getcomposer.org/)
 - [Guzzle, PHP HTTP Client](https://docs.guzzlephp.org/en/stable/)
 - [Expo](https://expo.dev/)
+- [React Native](https://reactnative.dev/)
+- [React Native Paper](https://reactnativepaper.com/)
 
 <br>
 
@@ -219,7 +261,7 @@ Abra outro terminal e acesse o projeto backend na pasta `backend` digitar no cmd
 
 Ao digitar a instrução acima, automaticamente ele irá baixar todas as dependências listadas e definidas no arquivo package.json e em composer.json:
 
-- `vendor` - que contêm os packages do npm que precisará para o projeto.
+- `node_modules` e `vendor` - que contêm os packages do npm e composer que precisará para o projeto.
 
 #### 💨 Executando a Aplicação
 
@@ -248,19 +290,19 @@ npm install
 
 Ao digitar a instrução acima, automaticamente ele irá baixar todas as dependências listadas e definidas no arquivo package.json:
 
-- `node_modules` - que contêm os packages do composer que precisará para o projeto.
+- `node_modules` - que contêm os packages do que precisará para o projeto.
 
 #### 💨 Executando a Aplicação
 
 Bom, agora **(dentro da pasta `mobile` do projeto clonado)** abra um terminal para o projeto ser executado e digite:
 
 ```
->
+npm start
 ```
 
-Pronto! dessa forma o projeto backend estará rodando localmente em sua maquina, acesse:
+Pronto! dessa forma o projeto mobile estará rodando localmente em sua maquina, acesse:
 ```
-http:
+http://localhost:19002/
 ```
 <br>
 

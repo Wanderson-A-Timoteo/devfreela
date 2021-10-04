@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTheme } from '@emotion/react';
 import { Text, ScrollView } from 'react-native';
 import PageTitle from 'ui/components/data-display/PageTitle/PageTitle';
@@ -13,6 +13,8 @@ import {
   ResponseContainer,
 } from '@styles/pages/encontrar-devfreela.styled';
 import useIndex from 'data/hooks/pages/useIndex.page';
+import useEncontrarDevfreela from 'data/hooks/pages/useEncontrarDevfreela.page.mobile';
+
 
 const EncontrarDevfreela: React.FC = () => {
   const { colors } = useTheme();
@@ -26,7 +28,16 @@ const EncontrarDevfreela: React.FC = () => {
     buscaFeita,
     carregando,
     devfreelasRestantes,
-  } = useIndex();
+  } = useIndex(),
+  { cepAutomatico } = useEncontrarDevfreela();
+
+  useEffect(() => {
+        if (cepAutomatico && !cep) {
+            setCep(cepAutomatico);
+            buscarProfissionais(cepAutomatico);
+        }
+    }, [cepAutomatico]);
+    
   return (
     <ScrollView>
       <PageTitle
