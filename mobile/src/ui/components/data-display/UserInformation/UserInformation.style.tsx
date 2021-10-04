@@ -9,7 +9,7 @@ export const UserInformationContainer = styled(View, {
   flex-flow: row;
   align-items: center;
   padding: ${({ theme }) => theme.spacing(3) + ' ' + theme.spacing(2)};
-  background-color: ${({ theme }) => theme.colors.gray[100]};
+  background-color: ${({ theme, darker }) => theme.colors.gray[darker ? 100 : 50]};
 `;
 
 export const InformationContainer = styled.View`
@@ -28,8 +28,8 @@ export const UserDescription = styled.Text`
 
 export const RatingStyled = styled(AirbnbRating)``;
 RatingStyled.defaultProps = {
-  isDisabled: true;
-  showRating: false;
+  isDisabled: true,
+  showRating: false,
   size: 10,
   count: 5,
   selectedColor: AppTheme.colors.warning,
@@ -37,5 +37,5 @@ RatingStyled.defaultProps = {
   starContainerStyle: css`
     width: 100%;
     justify-content: flex-start;
-  `;
+  `,
 };
