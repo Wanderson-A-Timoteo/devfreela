@@ -2,7 +2,6 @@
     <img alt="FlixPrime" title="FlixPrime" src=".github/devFreela.png" />
 </h1>
 
-<<<<<<< HEAD
 <p align="center">
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
