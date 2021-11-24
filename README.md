@@ -18,9 +18,8 @@
 
 ## 💻 Projeto
 
-O projeto foi desenvolvido como atividade avaliativa para a disciplina de Programação em Ambiente Web II. <br><br>
 Esta aplicação chama-se devFreela, consiste em um sistema para encontrar um programador freelancer mais proximo de você. <br><br>
-Cada cidade no Brasil, possui um código IBGE diferente, e para encontrar o freelancer mais próximo o sistema é integrado ao webservice do [ViaCEP](https://viacep.com.br/), 
+Cada cidade no Brasil, possui um código IBGE diferente, e para encontrar o freelancer mais próximo o sistema é integrado ao webservice do [ViaCEP](https://viacep.com.br/),
 para realizar consultas de CEP e assim pelo código IBGE do CEP pesquisado, o sistema busca no banco de dados os freelancers que possuem o mesmo código IBGE e mostra ao usuário.<br>
 <br>
 O banckend (API) foi desenvolvido em PHP, utilizando o framework Laravel 8, também foi desenvolvido a validação no preenchimento do formulário. <br>  
@@ -29,106 +28,146 @@ O frontend foi desenvolvido em React.js e Next.js. 💜
 O mobile foi desenvolvido em React Native e Expo, foi usado Location nativo do Expo para solicitar permissão ao usuario pegar suas coordenadas de geolocalização e realizar a busca dos freelancers de forma automatica. <br>
 
 As pessoas nas imagens usadas no sistema não existem, foram retiradas do site!
+
 - [This person do es not exist](https://thispersondoesnotexist.com/)
+
 ---
 
 <br>
 
 ## O que foi desenvolvido neste projeto
+
 ### Frontend
 
 - Criando o projeto
+
 ```
 npx create-next-app devfreela
 ```
+
 - Criado arquivo de configuração do TypeScript `tsconfig.json`
 - Instalado TypeScript e tipagem do React
- ```
-  npm i typescript @types/react
+
 ```
+ npm i typescript @types/react
+```
+
 - Instalado as dependências
+
 ```
 npm i @material-ui/core@next @emotion/react @emotion/styled axios react-input-mask
 ```
-<br>
----
+
+## <br>
 
 ### Backend
+
 - Criando o projeto
+
 ```
 composer create-project laravel/laravel devfreela
-``` 
+```
+
 - Criado arquivo de controller DevfreelaController
-```  
+
+```
 php artisan make:controller DevfreelaController
-``` 
+```
+
 - Executado as migrações no banco de dados
-``` 
+
+```
 php artisan migrate
-``` 
+```
+
 - Criado novas migração para a tabela devfreela no banco de dados
-``` 
+
+```
 php artisan make:migration create_devfreelas_table
-``` 
+```
+
 - Criado modelo Devfreela
-```    
+
+```
 php artisan make:model Devfreela
-``` 
+```
+
 - Instalado a dependência para usar o Laravel HTTP Client
-```   
+
+```
 composer require guzzlehttp/guzzle
-``` 
+```
+
 - Criar link simbólico para o Storage. Dentro da pasta public da aplicação execute no Windows usando prompt em modo administrador:
-```     
+
+```
 mklink /D public ..\storage\app\public`
-``` 
+```
+
 - Instalado o pacote de tradução para pt_BR
-```  
+
+```
 composer require lucascudo/laravel-pt-br-localization --dev
 
 php artisan vendor:publish --tag=laravel-pt-br-localization
-```     
+```
+
 - Instalado o pacote de mascaras no projeto
-```     
+
+```
 composer require clemdesign/php-mask
-``` 
+```
+
 ---
+
 <br>
 
 ### Mobile
+
 <br>
 
 - Instalando o Expo Global
+
 ```
 npm i -g expo-cli
 ```
+
 <br>
 
 - Criando o projeto mobile
+
 ```
 expo init NomeProjeto
 ```
+
 <br>
 
 - Selecionado opção de desenvolvimento
+
 ```
 blank ( TypeScript )
 ```
+
 <br>
 
 - Em caso de erro no Windows, executar:
+
 ```
 set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
+
 <br>
 
 - Instalando dependências
+
 ```
 npm i @emotion/react @emotion/native axios @react-native-navigation/native react-native-masked-text react-native-paper
 ```
+
 <br>
 
 - Instalando dependências do React Navigation
+
 ```
 expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/stack
 ```
@@ -136,9 +175,11 @@ expo install react-native-gesture-handler react-native-reanimated react-native-s
 <br>
 
 - Instalado o pacote de localização do Expo
-```     
+
+```
 expo install expo-location
-``` 
+```
+
 <br>
 
 ---
@@ -146,7 +187,9 @@ expo install expo-location
 <br>
 
 ## Prévia vizualização do Front-end
+
 Tela inicial do sistema.
+
 <p align="center">
     <img alt="devFreela" title="devFreela" src="https://github.com/Wanderson-A-Timoteo/devfreela/blob/main/.github/devFreela-frontend.PNG?raw=true" />
 </p>
@@ -157,6 +200,7 @@ Tela inicial do sistema.
 <br>
 
 Retornando os dados da API.
+
 <p align="center">
     <img alt="devFreela" title="devFreela" src="https://github.com/Wanderson-A-Timoteo/devfreela/blob/main/.github/devFreela-frontend2.PNG?raw=true" />
 </p>
@@ -167,7 +211,9 @@ Retornando os dados da API.
 <br>
 
 ## Prévia vizualização do Back-end
+
 Tela administrativa do sistema.
+
 <p align="center">
     <img alt="devFreela" title="devFreela" src="https://github.com/Wanderson-A-Timoteo/devfreela/blob/main/.github/devFreela-backend.PNG?raw=true" />
 </p>
@@ -243,9 +289,11 @@ npm run dev
 ```
 
 Pronto! dessa forma o projeto frontend estará rodando localmente em sua maquina, acesse:
+
 ```
 http://localhost:3000
 ```
+
 <br>
 
 ---
@@ -272,9 +320,11 @@ php artisan serve
 ```
 
 Pronto! dessa forma o projeto backend estará rodando localmente em sua maquina, acesse:
+
 ```
 http://127.0.0.1:8000/
 ```
+
 <br>
 
 ---
@@ -301,9 +351,11 @@ npm start
 ```
 
 Pronto! dessa forma o projeto mobile estará rodando localmente em sua maquina, acesse:
+
 ```
 http://localhost:19002/
 ```
+
 <br>
 
 ---
@@ -334,25 +386,20 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 
 Feito com ♥ by
 
--  [**Wanderson A. Timóteo**](https://wanderson.tk)
+- [**Wanderson A. Timóteo**](https://wanderson.tk)
 
-<!-- 
 <br>
 
 ---
 
 <br>
+
 ## Agradecimentos:
 
 <h1 align="center">
-    <img alt="" title="" src=".github/" />
+    <img alt="TreinaWeb" title="TreinaWeb" src=".github/treinaweb.png" />
 </h1>
 
-- Projeto desenvolvido [](https://).
+- Projeto desenvolvido durante o [Workshop Multi-Stack 02](https://www.treinaweb.com.br/).
 
-- Agradecimento a [](https://) por compartilhar conteúdo relevante e com qualidade de ensino. -->
-=======
-https://dsdelivery-wanderson-timoteo.netlify.app
-
-Deploy no Heroku, o carregamento dos produtos e lento, precisa esperar uns minutinhos.
->>>>>>> 770c809c3596a64a876d9f885531520c359af5ee
+- Agradecimento a [Akira Hanashiro](https://github.com/hanashiro) por compartilhar conteúdo relevante e com qualidade de ensino.
